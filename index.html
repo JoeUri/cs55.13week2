@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Import Esternal JSON</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <div id="Something_For_Class"></div>
+    
+    <script type="text/babel">
+      "use strict";
+
+      function Project(props){
+      return <div>
+          <ol>
+            {
+              props.list.map( 
+                (item,index) => (
+                  <li key={index}>
+                    <a href={item.nothing}>
+                      {item.something}
+                    </a>
+                  </li>
+                )
+              )
+            }
+          </ol>
+        </div>;
+    }
+      $.getJSON("anything", function(something) {
+      const root = ReactDOM.createRoot(document.getElementById('Something_For_Class'));
+      root.render(<Project list={something}/>);
+      });
+    </script>
+    
+      <script src="index.js"></script>
+  </body>
+</html>
